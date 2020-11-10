@@ -35,7 +35,14 @@
 
 // YOUR CODE GOES BELOW HERE //
 function makeContact(id, nameFirst, nameLast) {
-
+//return an object that has the argument ids as values to keys matching their names
+    
+    return {
+        id: id,
+        nameFirst: nameFirst,
+        nameLast: nameLast,
+        
+    };
 } 
 
 
@@ -43,14 +50,54 @@ function makeContactList() {
     /*
      * You need something here to hold contacts. See length api for a hint:
      */
-    var contacts;
+    //declared a var contacts and assigned it to an empty array
+    var contacts = [];
     
     return {
         // we implemented the length api for you //
         length: function() {
             return contacts.length;
+        },
+        //created a function addContact that pushes in contacts into the empty contacts array
+        addContact: function(contact) {
+            return contacts.push(contact);
+        },
+        //created a function findContact that searches through the contact list to see if contact exists
+        findContact: function(contact) {
+            for (var i = 0; i < contacts.length; i++) {
+                var name = contacts[i].nameFirst + ' ' + contacts[i].nameLast;
+                if (name === contact) {
+                    return contacts[i];
+                } else {
+                    return undefined;
+                }
+            }
+            
+        },
+        //created a function removeContact that searches for a contact id and removes it 
+        removeContact: function(contact){
+          for (var i = 0; i < contacts.length; i++){
+              if (contacts[i].id === contact.id){
+                  contacts.splice(i, 1);
+              }
+          }  
+        },
+        
+        printAllContactNames: function() {
+            //input: no inputs
+            //output: will be strings on a new line
+            //create an array to hold the full name strings of the contact objects
+            var contactsArray = [];
+            for (var i = 0; i < contacts.length; i++){
+                var name = contacts[i].nameFirst + ' ' + contacts[i].nameLast;
+                contactsArray.push(name);
+            }
+            return contactsArray.join('\n');
+            
+            //utilize join method "/n" on some kind of array to join in string on new line
         }
-    }
+        
+    };
 }
 
 

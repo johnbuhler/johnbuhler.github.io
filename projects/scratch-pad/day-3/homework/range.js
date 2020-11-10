@@ -23,8 +23,22 @@
  */
 function range(start, end) {
     // YOUR CODE GOES BELOW HERE //
+    //declared a variable arr and assigned it to an empty array
+    var arr = [];
+    if (start < end) {
+        //loop through the given array foward
+        for (var i = start; i <= end; i++){
+            arr.push(i);
+        }
+    } else if (start > end){
+        //loop through the given array in reverse
+        for (var i = start; i >= end; i--){
+            arr.push(i);
+        }
+    }
+    return arr;
     
-    
+       
     
     
     // YOUR CODE GOES ABOVE HERE //

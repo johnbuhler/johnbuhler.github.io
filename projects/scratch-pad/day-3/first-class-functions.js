@@ -14,7 +14,28 @@
 function createGreaterThanFilter(base) {
     // YOUR CODE BELOW HERE //
     
+    //input : is a base which is a number or string
     
+    
+    //return and entire function that tests whether the given value is greater than the base
+    
+    
+    return function(value) {
+        
+        //if the value argument is greater than the base argument return true
+        
+        if (value > base){
+            
+            return true;
+            
+        } else {
+            
+            //if the value is less than the original argument return false
+            
+            return false;
+        }
+    };
+   
     
     
     // YOUR CODE ABOVE HERE //
@@ -28,7 +49,13 @@ function createGreaterThanFilter(base) {
 function createLessThanFilter(base) {
     // YOUR CODE BELOW HERE //
     
-    
+ return function(value) {
+     if (value < base) {
+         return true;
+     } else {
+         return false;
+     }
+ };   
     
     
     // YOUR CODE ABOVE HERE //
@@ -42,7 +69,13 @@ function createLessThanFilter(base) {
 function createStartsWithFilter(startsWith) {
     // YOUR CODE BELOW HERE //
     
-    
+  return function(string) {
+        if(string[0].toLowerCase() === startsWith.toLowerCase()){
+        return true;
+    } else {
+        return false;
+    }
+    };   
     
     
     // YOUR CODE ABOVE HERE //
@@ -56,7 +89,13 @@ function createStartsWithFilter(startsWith) {
 function createEndsWithFilter(endsWith) {
     // YOUR CODE BELOW HERE //
     
-    
+     return function(string) {
+        if(string.toLowerCase()[string.length - 1] === endsWith.toLowerCase()){
+        return true;
+    } else {
+        return false;
+    }
+    };    
     
     
     // YOUR CODE ABOVE HERE //
@@ -72,7 +111,22 @@ function createEndsWithFilter(endsWith) {
 function modifyStrings(strings, modify) {
     // YOUR CODE BELOW HERE //
     
+     //input is an array of strings
+    //and a function going into modify
     
+    //starting point: beginning of string array
+    //ending point: end of string array
+    
+    
+     var array = [];
+    // console.log(strings[i]);
+    for(var i = 0; i < strings.length; i++) {
+        array.push(modify(strings[i]));
+      
+      //console.log(modify); //to see what going on
+    } 
+    //call the modified function and collect the results
+    return array;   
     
     
     // YOUR CODE ABOVE HERE //
@@ -90,7 +144,12 @@ function modifyStrings(strings, modify) {
 function allStringsPass(strings, test) {
     // YOUR CODE BELOW HERE //
     
-    
+    for (var i = 0; i < strings.length; i++) {    
+        if(test(strings[i]) === false) {
+            return false;
+        } 
+    } 
+    return true;    
     
     
     // YOUR CODE ABOVE HERE //
